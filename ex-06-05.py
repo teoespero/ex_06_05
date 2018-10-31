@@ -31,8 +31,16 @@ def getNumber():
                 dot = dot + 1
                 if dot > 1:
                     piece = ''
-        number = number + piece
-    return number
+            number = number + piece
+    if '.' in number:
+        return float(number)
+    else:
+        return int(number)
+
+def showNumber(number):
+    print('------------------------------------------')
+    print(number, type(number))
+    print('------------------------------------------')
 
 # declarations
 defString = 'X-DSPAM-Confidence: 0.8457   '
@@ -45,7 +53,7 @@ while again:
     printGreetings()
     myString = getUserAction()
     theNumber = getNumber()
-    print(theNumber)
+    showNumber(theNumber)
     while True:
         tryAgain = input('Another run(y/n)? ').lower()
         if tryAgain in 'yn':
